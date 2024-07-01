@@ -1,8 +1,14 @@
 import torch
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
+import platform
 
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+if torch.cuda.is_available():
+    DEVICE = "cuda"
+elif torch.backends.mps.is_available():  # Check for Apple Silicon GPU support
+    DEVICE = "mps"
+else:
+    DEVICE = "cpu"
 LEARNING_RATE = 3e-5
 WEIGHT_DECAY = 5e-4
 BATCH_SIZE = 20

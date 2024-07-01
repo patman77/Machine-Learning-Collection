@@ -3,7 +3,8 @@ import albumentations as A
 from albumentations.pytorch import ToTensorV2
 import cv2
 
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+DEVICE = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
+
 LEARNING_RATE = 1e-4
 WEIGHT_DECAY = 5e-4
 BATCH_SIZE = 64

@@ -55,7 +55,7 @@ class CNN(nn.Module):
 
 
 # Set device
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 assert device == "cuda", "GPU not available"
 
 # Hyperparameters

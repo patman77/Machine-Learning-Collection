@@ -10,3 +10,5 @@ ML/Pytorch/huggingface/test.csv
 ML/Pytorch/huggingface/tb_logs/
 ML/Pytorch/huggingface/checkpoints/
 ML/Pytorch/huggingface/notebooks/
+*dataset*
+runs

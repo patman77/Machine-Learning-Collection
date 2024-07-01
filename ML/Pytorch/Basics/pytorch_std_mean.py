@@ -14,7 +14,7 @@ from torch.utils.data import DataLoader
 import torchvision.datasets as datasets
 from tqdm import tqdm
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 train_set = datasets.CIFAR10(
     root="dataset/", transform=transforms.ToTensor(), download=True
 )

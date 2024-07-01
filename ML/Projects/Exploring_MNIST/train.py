@@ -21,7 +21,8 @@ class Train_MNIST(object):
         self.best_acc = 0
         self.in_channels = 1  # 1 because MNIST is grayscale
         self.dataset = mnist_data  # Class that is imported from utils that imports data
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.device = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
+
         self.dtype = torch.float32
 
         self.args = self.prepare_args()

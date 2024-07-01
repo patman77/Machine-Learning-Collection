@@ -19,7 +19,7 @@ import sys
 import unidecode
 
 # Device configuration
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
 # Get characters from string.printable
 all_characters = string.printable

@@ -23,8 +23,7 @@ import numpy as np
 #                        Initializing Tensor                        #
 # ================================================================= #
 
-device = "cuda" if torch.cuda.is_available() else "cpu"  # Cuda to run on GPU!
-
+device = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"  # Cuda to run on GPU!
 # Initializing a Tensor in this case of shape 2x3 (2 rows, 3 columns)
 my_tensor = torch.tensor(
     [[1, 2, 3], [4, 5, 6]], dtype=torch.float32, device=device, requires_grad=True

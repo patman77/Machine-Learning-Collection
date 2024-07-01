@@ -2,7 +2,7 @@ import torch
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
 
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+DEVICE = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
 NUM_WORKERS = 4
 BATCH_SIZE = 20
 PIN_MEMORY = True

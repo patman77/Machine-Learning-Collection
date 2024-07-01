@@ -25,7 +25,8 @@ class NN(nn.Module):
         return torch.sigmoid(self.fc2(x)).view(-1)
 
 
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+DEVICE = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
+
 model = NN(input_size=400, hidden_dim=100).to(DEVICE)
 optimizer = optim.Adam(model.parameters(), lr=2e-3, weight_decay=1e-4)
 loss_fn = nn.BCELoss()

@@ -56,7 +56,7 @@ class CNN(nn.Module):
 
 
 # Set device
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
 # Hyperparameters
 in_channels = 1

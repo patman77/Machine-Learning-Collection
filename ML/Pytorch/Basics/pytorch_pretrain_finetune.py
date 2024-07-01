@@ -22,7 +22,7 @@ import torchvision.datasets as datasets  # Has standard datasets we can import i
 import torchvision.transforms as transforms  # Transformations we can perform on our dataset
 from tqdm import tqdm
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
 # Hyperparameters
 num_classes = 10
