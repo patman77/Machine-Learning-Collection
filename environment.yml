@@ -1,0 +1,14 @@
+name: deeplearning
+channels:
+  - defaults
+dependencies:
+  - pytorch-nightly::pytorch
+  - torchaudio
+  - torchvision
+  - python=3.11
+  - tensorboard
+  - tqdm
+  - pandas
+  - spacy
+  - lightning
+prefix: /opt/anaconda3/envs/deeplearning
